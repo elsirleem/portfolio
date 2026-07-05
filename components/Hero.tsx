@@ -166,8 +166,8 @@ export default function Hero() {
             solid enough to survive messy, real-world inputs; backend craft to
             expose that data through clean APIs; and a sustainability lens,
             shaped by my Green Deal-focused Master&apos;s, that keeps the
-            bigger picture in view. Python is the thread running through all
-            three.
+            bigger picture in view. If there&apos;s one language fluent in all
+            three, it&apos;s Python.
           </p>
 
           {/* Social icons */}
