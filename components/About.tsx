@@ -64,7 +64,7 @@ const strengths = [
       </svg>
     ),
     title: 'Clean Code',
-    desc: 'Writing maintainable, tested systems designed to stay reliable as they scale.',
+    desc: 'Writing maintainable, well-documented, tested systems designed to stay reliable as they scale.',
   },
   {
     icon: (

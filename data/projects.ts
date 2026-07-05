@@ -12,6 +12,7 @@ export interface Project {
   live?: string;
   badge?: string;
   image?: string;
+  report?: string;
 }
 
 export const projects: Project[] = [
@@ -48,7 +49,8 @@ export const projects: Project[] = [
     track: ["se", "de"],
     github: "https://github.com/elsirleem/Susoft",
     badge: "Hackathon Winner",
-    image: "/susoft.png"
+    image: "/susoft.png",
+    report: "/susoft-report.pdf"
   },
   {
     id: 4,
@@ -136,7 +138,8 @@ export const projects: Project[] = [
     tech: ["Python", "PostgreSQL", "Apache Kafka", "Apache Flink", "Docker", "Time-Series Data"],
     track: ["de"],
     github: "https://github.com/elsirleem/SA_DesignSyndicate_FMMS",
-    badge: "Team Project"
+    badge: "Team Project",
+    report: "/fmms-report.pdf"
   },
   {
     id: 12,
@@ -147,6 +150,7 @@ export const projects: Project[] = [
     tech: ["Python", "Docker", "MQTT", "Telegraf", "InfluxDB", "Grafana", "Node-RED"],
     track: ["de", "se"],
     github: "https://github.com/elsirleem/SE4IoT_project",
-    badge: "Team Project"
+    badge: "Team Project",
+    report: "/se4iot-report.pdf"
   }
 ];
