@@ -47,7 +47,8 @@ export const projects: Project[] = [
     tech: ["Vue.js", "Node.js", "PostgreSQL", "Docker", "Oracle Cloud", "LLM Integration"],
     track: ["se", "de"],
     github: "https://github.com/elsirleem/Susoft",
-    badge: "Hackathon Winner"
+    badge: "Hackathon Winner",
+    image: "/susoft.png"
   },
   {
     id: 4,
@@ -57,7 +58,8 @@ export const projects: Project[] = [
     impact: "Demonstrates modern agentic AI architecture for financial data monitoring with real-time alerting.",
     tech: ["Python", "LangGraph", "FastAPI", "Twilio", "REST APIs"],
     track: ["se"],
-    github: "https://github.com/elsirleem/Stock_PulseAgent"
+    github: "https://github.com/elsirleem/Stock_PulseAgent",
+    image: "/stockpulse.png"
   },
   {
     id: 5,
@@ -67,7 +69,8 @@ export const projects: Project[] = [
     impact: "Demonstrates core ETL design patterns: ingestion, transformation, validation, and loading.",
     tech: ["Python", "ETL", "REST APIs", "PostgreSQL"],
     track: ["de"],
-    github: "https://github.com/elsirleem/weather-etl"
+    github: "https://github.com/elsirleem/weather-etl",
+    image: "/weather-etl.png"
   },
   {
     id: 6,
@@ -77,7 +80,8 @@ export const projects: Project[] = [
     impact: "Supports data-driven engineering retrospectives and productivity tracking for development teams.",
     tech: ["Python", "GitHub API", "Data Pipelines", "PostgreSQL", "Dashboard"],
     track: ["de"],
-    github: "https://github.com/elsirleem/github-engineering-productivity-dashboard"
+    github: "https://github.com/elsirleem/github-engineering-productivity-dashboard",
+    image: "/engineering-productivity.png"
   },
   {
     id: 7,
@@ -87,7 +91,8 @@ export const projects: Project[] = [
     impact: "Projected \u20a645\u201365 billion annual revenue throughput across Nigeria\u2019s entire diplomatic network.",
     tech: ["TypeScript", "React.js", "Node.js", "REST APIs", "SendGrid"],
     track: ["se"],
-    github: "https://tsa.gov.ng"
+    github: "https://tsa.gov.ng",
+    image: "/foreign-tsa.png"
   },
   {
     id: 8,
@@ -97,7 +102,8 @@ export const projects: Project[] = [
     impact: "Uncovered key patterns in movie performance and audience rating behaviour across genres and decades.",
     tech: ["Python", "Pandas", "Matplotlib", "Seaborn", "Jupyter Notebook"],
     track: ["da"],
-    github: "https://github.com/elsirleem/MovieRating"
+    github: "https://github.com/elsirleem/MovieRating",
+    image: "/movie-rating.webp"
   },
   {
     id: 9,
@@ -120,5 +126,27 @@ export const projects: Project[] = [
     track: ["da"],
     github: "https://github.com/elsirleem/WeRateDogs",
     image: "/weratedogs.jpg"
+  },
+  {
+    id: 11,
+    title: "Flood Monitoring and Management System",
+    subtitle: "Real-Time Environmental Sensor Streaming Pipeline",
+    description: "Engineered a real-time streaming pipeline using Kafka and Flink, processing 150,000+ environmental sensor events per minute for monitoring and anomaly detection. Built containerized data workflows supporting time-series analytics, live monitoring, and automated alerting for flood-risk indicators.",
+    impact: "Processes 150,000+ environmental sensor events per minute for real-time flood-risk monitoring and anomaly detection.",
+    tech: ["Python", "PostgreSQL", "Apache Kafka", "Apache Flink", "Docker", "Time-Series Data"],
+    track: ["de"],
+    github: "https://github.com/elsirleem/SA_DesignSyndicate_FMMS",
+    badge: "Team Project"
+  },
+  {
+    id: 12,
+    title: "Smart Traffic Monitoring System",
+    subtitle: "Simulated IoT Traffic & Environmental Monitoring Pipeline",
+    description: "A simulated IoT system monitoring urban traffic and environmental conditions — simulating traffic density, speed, CO2, PM2.5, PM10, and noise levels, ingesting via MQTT and Telegraf into InfluxDB, and visualizing real-time dashboards in Grafana.",
+    impact: "Demonstrates a full sensor-to-dashboard IoT pipeline: MQTT ingestion, time-series storage, and real-time environmental monitoring dashboards.",
+    tech: ["Python", "Docker", "MQTT", "Telegraf", "InfluxDB", "Grafana", "Node-RED"],
+    track: ["de", "se"],
+    github: "https://github.com/elsirleem/SE4IoT_project",
+    badge: "Team Project"
   }
 ];

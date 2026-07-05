@@ -28,19 +28,13 @@ export const certifications: Certification[] = [
   },
   {
     id: 4,
-    name: 'Microsoft Fabric Data Engineer',
-    status: 'Planned',
-    blurb: 'End-to-end analytics engineering across the Microsoft Fabric platform.',
+    name: 'Python Programmer',
+    status: 'Completed',
+    blurb: 'Core Python programming fundamentals for data and backend engineering.',
   },
   {
     id: 5,
-    name: 'Kubernetes and Cloud Native Associate (KCNA)',
-    status: 'Completed',
-    blurb: 'Core Kubernetes concepts, container orchestration, and cloud-native fundamentals.',
-  },
-  {
-    id: 6,
-    name: 'Meta Backend Developer',
+    name: 'Meta Backend Development',
     status: 'Completed',
     blurb: 'REST API design, databases, and backend architecture fundamentals.',
   },

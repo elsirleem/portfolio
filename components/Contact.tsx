@@ -6,8 +6,8 @@ import SectionHeader from '@/components/SectionHeader';
 const infoCards = [
   {
     label: 'Email',
-    value: 'lawal.salim.it@gmail.com',
-    href: 'mailto:lawal.salim.it@gmail.com',
+    value: 'salim.lawal.it@gmail.com',
+    href: 'mailto:salim.lawal.it@gmail.com',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -17,7 +17,7 @@ const infoCards = [
   },
   {
     label: 'Location',
-    value: 'Amsterdam, Netherlands · Open to remote & hybrid',
+    value: 'Amsterdam, Netherlands',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z" />
@@ -27,7 +27,7 @@ const infoCards = [
   },
   {
     label: 'Availability',
-    value: 'Available from July 2026, upon graduation',
+    value: 'Available from July 2026 for full-time roles',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="4" width="18" height="18" rx="2" />
@@ -59,7 +59,7 @@ const socials = [
     ),
   },
   {
-    href: 'mailto:lawal.salim.it@gmail.com',
+    href: 'mailto:salim.lawal.it@gmail.com',
     label: 'Email',
     icon: (
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -82,9 +82,12 @@ const inputStyle: React.CSSProperties = {
   outline: 'none',
 };
 
+type SubmitStatus = 'idle' | 'sending' | 'success' | 'error';
+
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
+  const [status, setStatus] = useState<SubmitStatus>('idle');
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -105,13 +108,48 @@ export default function Contact() {
     return () => observer.disconnect();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const formspreeValue = process.env.NEXT_PUBLIC_FORMSPREE_ID;
+  const formEndpoint = formspreeValue
+    ? formspreeValue.startsWith('http')
+      ? formspreeValue
+      : `https://formspree.io/f/${formspreeValue}`
+    : null;
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(form.subject || `Portfolio message from ${form.name || 'a visitor'}`);
-    const body = encodeURIComponent(
-      `${form.message}\n\n— ${form.name}${form.email ? ` (${form.email})` : ''}`
-    );
-    window.location.href = `mailto:lawal.salim.it@gmail.com?subject=${subject}&body=${body}`;
+
+    if (!formEndpoint) {
+      // Fallback if Formspree hasn't been configured yet
+      const subject = encodeURIComponent(form.subject || `Portfolio message from ${form.name || 'a visitor'}`);
+      const body = encodeURIComponent(
+        `${form.message}\n\n— ${form.name}${form.email ? ` (${form.email})` : ''}`
+      );
+      window.location.href = `mailto:salim.lawal.it@gmail.com?subject=${subject}&body=${body}`;
+      return;
+    }
+
+    setStatus('sending');
+    try {
+      const res = await fetch(formEndpoint, {
+        method: 'POST',
+        headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          subject: form.subject || `Portfolio message from ${form.name || 'a visitor'}`,
+          message: form.message,
+        }),
+      });
+
+      if (res.ok) {
+        setStatus('success');
+        setForm({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
   };
 
   return (
@@ -270,6 +308,7 @@ export default function Contact() {
 
           <button
             type="submit"
+            disabled={status === 'sending'}
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -279,19 +318,37 @@ export default function Contact() {
               borderRadius: '12px',
               background: 'var(--accent-cyan)',
               border: 'none',
-              cursor: 'pointer',
+              cursor: status === 'sending' ? 'not-allowed' : 'pointer',
+              opacity: status === 'sending' ? 0.7 : 1,
               fontFamily: 'var(--font-body), sans-serif',
               fontSize: '0.92rem',
               fontWeight: 600,
               color: '#04141a',
             }}
           >
-            Send Message
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="22" y1="2" x2="11" y2="13" />
-              <polygon points="22 2 15 22 11 13 2 9 22 2" />
-            </svg>
+            {status === 'sending' ? 'Sending...' : 'Send Message'}
+            {status !== 'sending' && (
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+            )}
           </button>
+
+          {status === 'success' && (
+            <p style={{ fontFamily: 'var(--font-body), sans-serif', fontSize: '0.85rem', color: 'var(--accent-green)', textAlign: 'center' }}>
+              Message sent — I&apos;ll get back to you soon.
+            </p>
+          )}
+          {status === 'error' && (
+            <p style={{ fontFamily: 'var(--font-body), sans-serif', fontSize: '0.85rem', color: '#f87171', textAlign: 'center' }}>
+              Something went wrong. Please email me directly at{' '}
+              <a href="mailto:salim.lawal.it@gmail.com" style={{ color: '#f87171' }}>
+                salim.lawal.it@gmail.com
+              </a>
+              .
+            </p>
+          )}
         </form>
       </div>
     </section>

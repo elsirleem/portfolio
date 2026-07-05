@@ -9,7 +9,7 @@ This file gives Claude full context about Salim's background, resumes, and cover
 - **Full Name:** Lawal Salim Kamaludeen
 - **Location:** Amsterdam, Netherlands
 - **Phone:** +31 622 96 4122
-- **Email:** lawal.salim.it@gmail.com
+- **Email:** salim.lawal.it@gmail.com
 - **LinkedIn:** [linkedin.com/in/lawal-salim](https://www.linkedin.com/in/lawal-salim/)
 - **GitHub:** [github.com/elsirleem](https://github.com/elsirleem)
 

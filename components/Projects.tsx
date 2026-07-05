@@ -53,6 +53,7 @@ const TRACK_STYLE: Record<Track, { rgb: string; label: string; icon: React.React
 const BADGE_STYLE: Record<string, { bg: string; text: string; border: string }> = {
   'MSc Thesis': { bg: 'rgba(251,191,36,0.12)', text: '#fbbf24', border: 'rgba(251,191,36,0.25)' },
   'Hackathon Winner': { bg: 'rgba(52,211,153,0.12)', text: '#34d399', border: 'rgba(52,211,153,0.25)' },
+  'Team Project': { bg: 'rgba(167,139,250,0.12)', text: '#a78bfa', border: 'rgba(167,139,250,0.25)' },
 };
 
 function ProjectCard({ project }: { project: Project }) {
