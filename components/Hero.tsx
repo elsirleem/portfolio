@@ -139,14 +139,35 @@ export default function Hero() {
               fontWeight: 300,
               color: 'var(--ink-dim)',
               lineHeight: 1.75,
+              marginBottom: '1rem',
+              maxWidth: '540px',
+            }}
+          >
+            I&apos;m Salim, a data and software engineer who cares more about
+            what happens after data arrives than how fast it gets there. I
+            work on pipeline end to end: ingesting raw data from APIs and
+            platforms, validating and modelling it into datasets people can
+            trust, and shipping it through backend services and cloud
+            infrastructure that turn it into decisions.
+          </p>
+
+          <p
+            style={{
+              fontFamily: 'var(--font-body), sans-serif',
+              fontSize: 'clamp(0.95rem, 1.4vw, 1.05rem)',
+              fontWeight: 300,
+              color: 'var(--ink-dim)',
+              lineHeight: 1.75,
               marginBottom: '2.25rem',
               maxWidth: '540px',
             }}
           >
-            I build reliable data pipelines and backend systems — from
-            ingestion to validated, decision-ready datasets. My focus is
-            clean architecture, data integrity, and sustainable engineering
-            that teams can actually trust.
+            My sweet spot sits where three things overlap: data engineering
+            solid enough to survive messy, real-world inputs; backend craft to
+            expose that data through clean APIs; and a sustainability lens,
+            shaped by my Green Deal-focused Master&apos;s, that keeps the
+            bigger picture in view. Python is the thread running through all
+            three.
           </p>
 
           {/* Social icons */}
@@ -340,7 +361,8 @@ export default function Hero() {
             style={{
               position: 'absolute',
               bottom: '-14px',
-              right: 'calc(50% - min(160px, 40vw))',
+              left: '50%',
+              transform: 'translateX(-50%)',
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
@@ -358,7 +380,7 @@ export default function Hero() {
                 whiteSpace: 'nowrap',
               }}
             >
-              Open to Work
+              Open to Junior Data Engineer/Software Engineer Roles
             </span>
           </div>
         </div>

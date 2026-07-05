@@ -139,7 +139,8 @@ export const projects: Project[] = [
     track: ["de"],
     github: "https://github.com/elsirleem/SA_DesignSyndicate_FMMS",
     badge: "Team Project",
-    report: "/fmms-report.pdf"
+    report: "/fmms-report.pdf",
+    image: "/fmms-architecture.png"
   },
   {
     id: 12,
@@ -151,6 +152,7 @@ export const projects: Project[] = [
     track: ["de", "se"],
     github: "https://github.com/elsirleem/SE4IoT_project",
     badge: "Team Project",
-    report: "/se4iot-report.pdf"
+    report: "/se4iot-report.pdf",
+    image: "/se4iot.png"
   }
 ];

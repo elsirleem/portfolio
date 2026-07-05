@@ -25,7 +25,7 @@ export const experiences: Experience[] = [
   },
   {
     id: 2,
-    role: "Data Engineer",
+    role: "Data Engineer Intern",
     company: "SwanIT",
     logo: "/swanit.jpeg",
     location: "Helsinki, Finland",

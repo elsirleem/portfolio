@@ -255,7 +255,7 @@ export default function Experience() {
             Where I&apos;ve <span className="gradient-text">built things</span>
           </>
         }
-        subtitle="From data pipelines to backend systems, here's my journey delivering engineering impact."
+        subtitle="From data pipelines to backend systems and to the cloud, here's my journey delivering engineering impact."
       />
 
       <div style={{ position: 'relative' }}>

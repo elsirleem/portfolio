@@ -107,7 +107,7 @@ export default function About() {
       <SectionHeader
         title={
           <>
-            Turning data into <span className="gradient-text">decisions</span>
+            Turning complex Data into <span className="gradient-text">decisions</span>
           </>
         }
       />
@@ -161,7 +161,7 @@ export default function About() {
             <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0' }}>
               {journey.map((stop, i) => (
                 <div key={stop.country} style={{ display: 'flex', alignItems: 'center' }}>
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px', width: '92px', flexShrink: 0 }}>
                     <div
                       style={{
                         width: '48px',

@@ -12,7 +12,7 @@ interface EducationEntry {
   location: string;
   description: string;
   keyLearnings: string[];
-  universities?: { flag: string; name: string; grade: string }[];
+  universities?: { flag: string; name: string; country: string; degree: string; grade: string }[];
 }
 
 const educationEntries: EducationEntry[] = [
@@ -31,9 +31,9 @@ const educationEntries: EducationEntry[] = [
       'Applied coursework in data engineering, backend architecture, and DevOps',
     ],
     universities: [
-      { flag: '🇳🇱', name: 'VU Amsterdam', grade: '8.0 / 10' },
-      { flag: '🇫🇮', name: 'LUT Finland', grade: '4.33 / 5' },
-      { flag: '🇮🇹', name: "University of L'Aquila", grade: '27.6 / 30' },
+      { flag: '🇳🇱', name: 'Vrije Universiteit Amsterdam', country: 'Netherlands', degree: 'MSc in Computer Science', grade: 'Distinction: 8.0 / 10' },
+      { flag: '🇫🇮', name: 'Lappeenranta University of Technology', country: 'Finland', degree: 'MSc in Software Engineering', grade: 'Distinction: 4.33 / 5' },
+      { flag: '🇮🇹', name: "University of L'Aquila", country: 'Italy', degree: 'MSc in Computer Science', grade: 'Distinction: 27.6 / 30' },
     ],
   },
   {
@@ -191,20 +191,31 @@ function EducationCard({ entry }: { entry: EducationEntry }) {
               <div
                 key={uni.name}
                 style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  padding: '0.5rem 0.75rem',
+                  padding: '0.6rem 0.75rem',
                   borderRadius: '8px',
                   background: 'rgba(255,255,255,0.03)',
                 }}
               >
-                <span style={{ fontFamily: 'var(--font-body), sans-serif', fontSize: '0.82rem', color: 'var(--ink-dim)' }}>
-                  {uni.flag} {uni.name}
-                </span>
-                <span style={{ fontFamily: 'var(--font-heading), sans-serif', fontSize: '0.78rem', fontWeight: 600, color: 'var(--accent-cyan)' }}>
-                  {uni.grade}
-                </span>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.6rem' }}>
+                  <span style={{ fontFamily: 'var(--font-heading), sans-serif', fontSize: '0.82rem', fontWeight: 600, color: 'var(--ink)' }}>
+                    {uni.flag} {uni.name}
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-heading), sans-serif',
+                      fontSize: '0.72rem',
+                      fontWeight: 600,
+                      color: 'var(--accent-cyan)',
+                      whiteSpace: 'nowrap',
+                      flexShrink: 0,
+                    }}
+                  >
+                    {uni.grade}
+                  </span>
+                </div>
+                <p style={{ fontFamily: 'var(--font-body), sans-serif', fontSize: '0.76rem', color: 'var(--ink-faint)', marginTop: '2px' }}>
+                  {uni.degree} · {uni.country}
+                </p>
               </div>
             ))}
           </div>
