@@ -162,8 +162,8 @@ export default function Hero() {
               maxWidth: '540px',
             }}
           >
-            My sweet spot sits where three things overlap: data engineering
-            solid enough to survive messy, real-world inputs; backend craft to
+            My core strenght and interest overlaps across three domains: data engineering
+            solid enough to survive messy, real-world inputs; backend development to
             expose that data through clean APIs; and a sustainability lens,
             shaped by my Green Deal-focused Master&apos;s, that keeps the
             bigger picture in view. If there&apos;s one language fluent in all
