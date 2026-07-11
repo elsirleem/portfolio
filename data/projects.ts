@@ -25,6 +25,7 @@ export const projects: Project[] = [
     tech: ["Python", "FastAPI", "SQLite", "Next.js", "TypeScript", "Anthropic API", "Docker", "Jira API"],
     track: ["de", "se"],
     github: "https://github.com/elsirleem/metricmind",
+    live: "https://metricmind-frontend.fly.dev/",
     badge: "MSc Thesis",
     image: "/metricmind.png"
   },
